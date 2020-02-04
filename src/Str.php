@@ -44,4 +44,20 @@ class Str
         return preg_replace('/[^A-Za-z0-9-]+/', $delimiter, $string);
     }
 
+    /*
+    * Create a random  string
+    */
+    public static function rand($length)
+    {
+        $chars = '~)!abc}def#ghijkl[m-no.pqrs]tu;v|wx+yzA%BC(D:EF{GHI&JKLM=NOP*QRS?TU4567VWXYZ_012389' .uniqid();
+        $str   =  '';
+        $size  = strlen($chars);
+
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $chars[rand(0, $size - 1)];
+        }
+        
+        return $str;
+    }
+
 }
