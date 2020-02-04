@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\Helpers;
+namespace PHP\Types;
 
 class Str
 {
@@ -44,49 +44,4 @@ class Str
         return preg_replace('/[^A-Za-z0-9-]+/', $delimiter, $string);
     }
 
-    public static function exists($type = 'post', $data = null)
-    {
-        switch ($type) {
-            case 'post':
-                if (is_null($data)) {
-                    return (!empty($_POST)) ? true : false;
-                }
-
-                return $data;
-                break;
-
-            case 'get':
-                if (is_null($data)) {
-                    return (!empty($_GET)) ? true : false;
-                }
-
-                return $data;
-                break;
-
-            case 'files':
-                if (is_null($data)) {
-                    return (!empty($_FILES)) ? true : false;
-                }
-
-                return $data;
-                break;
-
-            default:
-                return false;
-                break;
-        }
-    }
-
-    public static function get($item, $info = null)
-    {
-        if (isset($_POST[$item])) {
-            return trim(filter_var($_POST[$item], FILTER_SANITIZE_STRING));
-        } elseif (isset($_GET[$item])) {
-            return trim(filter_var($_GET[$item], FILTER_SANITIZE_STRING));
-        } elseif (isset($_FILES[$item][$info])) {
-            return $_FILES[$item][$info];
-        }
-        
-        return null;
-    }
 }

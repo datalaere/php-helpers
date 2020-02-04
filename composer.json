@@ -1,0 +1,16 @@
+{
+	"name": "datalaere/php-types",
+	"version": "dev-master",
+	"type": "project",
+	"description": "Useful classes for creating a php mvc app",
+	"homepage": "https://github.com/datalaere/php-types",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"PHP\\Types\\": "src/"
+		}
+	}
+}
